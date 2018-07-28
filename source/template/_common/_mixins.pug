@@ -1,0 +1,37 @@
+
+//- ************************************************************ //
+//-                     COMMON MIXINS
+//- ************************************************************ //
+
+//- ----------- btn -------------- //
+
+mixin btn-up
+	.btn-up
+		.btn(href='#') Вверх
+//- ----------- logo -------------- //
+
+mixin logo(text, src, mods)
+	div(class="logo " + ((mods === false) ? "" : mods))
+		a.logo__link(href="#")
+			img.logo__img(src="assets/img/" + src)
+			.logo__text=text
+
+//- ----------- checkbox -------------- //
+
+mixin checkbox(text)
+	label.checkbox
+		input.checkbox__input(name="location" type="radio")
+		.checkbox__elem
+		.checkbox__text= text
+
+//- ----------- menu -------------- //
+
+mixin menu(array, active, mods)
+	ul(class="menu__list" + mods)
+		each item in array
+			li(class="menu__item" + (item === active ? " active" : ""))
+				a(class="menu__link" href="#")=item
+
+//- ************************************************************ //
+//-                     PRIVATE MIXINS
+//- ************************************************************ //

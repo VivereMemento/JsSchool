@@ -1,0 +1,28 @@
+block variables
+
+doctype html
+html(lang="ru-Ru")
+	head
+		meta(charset="utf-8")
+		title #{title}
+		meta(content="" name="author")
+		meta(content="" name="description")
+		meta(content="" name="keywords")
+		meta(content="width=device-width, initial-scale=1" name="viewport")
+		meta(content="ie=edge" http-equiv="x-ua-compatible")
+
+		link(href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet")
+		link(rel='stylesheet' href='./assets/css/foundation.css')
+		link(rel='stylesheet' href='./assets/css/app.css')
+
+	body
+
+		.wrapper
+			.maincontent
+				include _common/_mixins
+				include _common/_header
+				block content
+		include _common/_footer
+
+		script(src='./assets/js/foundation.js' defer)
+		script(src='./assets/js/app.js' defer)
