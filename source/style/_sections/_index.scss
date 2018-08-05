@@ -1,6 +1,88 @@
 .folder-list {
+  width: max-content;
 
   &__item {
+    margin-bottom: 5px;
+
+    &-name {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: .3s;
+
+      &:hover {
+        letter-spacing: 2px;
+        background: #eee;
+      }
+
+      &.open {
+
+        & .folder-list__trigger {
+          background: url(../img/icons/folder-open.svg) no-repeat center;
+        }
+
+        & + .folder-list__subitem-wrap,
+        & + .folder-list__file-wrap {
+          height: max-content;
+        }
+      }
+
+      &.choosen {
+        background: #d0d0d0;
+      }
+    }
+  }
+
+  &__trigger {
+    display: block;
+    width: 20px;
+    height: 18px;
+    margin-right: 5px;
+    background: url(../img/icons/folder-close.svg) no-repeat center;
+  }
+
+  &__subitem-wrap {
+    height: 0;
+    overflow: hidden;
+  }
+
+  &__subitem {
+    margin-bottom: 5px;
     padding-left: 15px;
+
+    &-name {
+      @extend .folder-list__item-name;
+    }
+  }
+  
+  &__file-wrap {
+    height: 0;
+    overflow: hidden;
+  }
+
+  &__file {
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover {
+      letter-spacing: 2px;
+      background: #eee;
+    }
+
+    &:before {
+      display: block;
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: url(../img/icons/file.svg) no-repeat center;
+      background-size: contain;
+    }
+
+    &.choosen {
+      background: #d0d0d0;
+    }
   }
 }

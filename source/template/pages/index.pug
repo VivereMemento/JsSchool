@@ -5,8 +5,72 @@ block variables
 
 block content
 	main.main
-		- for (var i = 1; i <= 10; i++)
-			div.folder-list Folder #{i}
-				- for (var y = 1; y <= 2; y++)
-					div.folder-list__item Inner folder #{y}
-		
+		-
+			var folders = [
+				{
+					name: 'asterai',
+					items: ['asterai.com', 'asterai.com-design'],
+					files: ['asterai.com', 'asterai.com-design']
+				},
+				{
+					name: 'bot_developper',
+					items: ['bot_developper.com', 'bot_developper.com-design'],
+					files: ['bot_developper.com', 'bot_developper.com-design']
+				},
+				{
+					name: 'ghostpdi',
+					items: ['ghostpdi.com', 'ghostpdi.com-design'],
+					files: ['ghostpdi.com', 'ghostpdi.com-design']
+				},
+				{
+					name: 'js_school',
+					items: ['js_school.com', 'js_school.com-design'],
+					files: ['js_school.com', 'js_school.com-design']
+				},
+				{
+					name: 'learn',
+					items: ['learn.com', 'learn.com-design'],
+					files: ['learn.com', 'learn.com-design']
+				},
+				{
+					name: 'ml',
+					items: ['ml.com', 'ml.com-design'],
+					files: ['ml.com', 'ml.com-design']
+				},
+				{
+					name: 'opensource',
+					items: ['opensource.com', 'opensource.com-design'],
+					files: ['opensource.com', 'opensource.com-design']
+				},
+				{
+					name: 'test',
+					items: ['test.com', 'test.com-design'],
+					files: ['test.com', 'test.com-design']
+				},
+				{
+					name: 'tests',
+					items: ['tests.com', 'tests.com-design'],
+					files: ['tests.com', 'tests.com-design']
+				},
+				{
+					name: 'trueedit',
+					items: ['trueedit.com', 'trueedit.com-design'],
+					files: ['trueedit.com', 'trueedit.com-design']
+				}
+			];
+		div(id='folder-list' class='folder-list')
+			each folder in folders
+				.folder-list__item
+					span(class='folder-list__item-name trigger')
+						span.folder-list__trigger
+						| #{folder.name}
+					.folder-list__subitem-wrap
+						each item in folder.items
+							.folder-list__subitem
+								span(class='folder-list__subitem-name trigger')
+									span.folder-list__trigger
+									| #{item}
+								.folder-list__file-wrap
+									each file in folder.files
+										if (file === item)
+											span(class='folder-list__file trigger') #{file}
